@@ -6,7 +6,7 @@
 }
 body{
     background: #000099;
-    color: #3333ff;
+    color: whitesmoke;
 }
 
 #header{
@@ -30,13 +30,13 @@ nav{
 }
 
 .logo{
-    width: 250px
+    width: 250px;
 }
 
 nav ul li{
     display: inline-block;
     list-style: none;
-    margin: 10px 20px
+    margin: 10px 20px;
 }
 
 nav ul li a{
@@ -60,4 +60,14 @@ nav ul li a::after{
 
 nav ul li a:hover::after{
     width: 100%;
+}
+
+.header-text {
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.header-text h1{
+    font-size: 60px;
+    margin-top: 20px;
 }
