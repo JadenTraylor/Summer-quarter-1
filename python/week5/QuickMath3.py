@@ -13,7 +13,7 @@ class Calculator:
         return x * y
 
 
-calculator = Calculator() 
+calculator = Calculator()
 
 sum = calculator.Add(25,78)
 difference = calculator.Subtract(10,5)
