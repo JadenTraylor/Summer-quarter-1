@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 body{
-    background: #000099;
+    background: black;
     color: whitesmoke;
 }
 
@@ -77,7 +77,7 @@ nav ul li a:hover::after{
 /* ------------about--------------- */
 #about{
     padding: 80px 0;
-    color: #ABABAB;
+    color: whitesmoke;
 }
 .row{
     display: flex;
