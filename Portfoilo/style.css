@@ -9,36 +9,35 @@ body{
     color: whitesmoke;
 }
 
+/* Header Section */
 #header{
     width: 100%;
     height: 100vh;
     background-image: url("images/football.jpeg");
     background-size: contain; 
     background-position: center;
+
 }
-
-
 .container{
     padding: 10px 10%;
 }
-
-nav{
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
 }
-
-.logo{
-    width: 250px;
+.logo {
+    width: 140px;
 }
-
-nav ul li{
-    display: inline-block;
+nav ul {
+    display: flex;
     list-style: none;
     margin: 10px 20px;
 }
-
+nav ul li {
+    margin: 0 15px;
+}
 nav ul li a{
     color:red;
     text-decoration: none;
@@ -46,99 +45,176 @@ nav ul li a{
     position: relative;
 
 }
-
-nav ul li a::after{
-    content:'';
-    width: 0; 
-    height: 3px;
-    background: whitesmoke;
-    position: absolute;
-    left: 0; 
-    bottom: -6px;
-    transition: 0.5s;
-}
-
-nav ul li a:hover::after{
-    width: 100%;
-}
-
-.header-text {
-    font-size: 20px;
-    margin-top: 30px;
-}
-
-.header-text h1{
-    font-size: 60px;
-    margin-top: 20px;
-}
-.header-text h1 span{
-    color: black (0, 128, 111);
-}
-/* ------------about--------------- */
-#about{
-    padding: 80px 0;
-    color: whitesmoke;
-}
-.row{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-.about-col-1{
-    flex-basis: 35%;
-}
-.about-col-1 img{
-    width: 100%;
-    border-radius: 15px;
-}
-.about-col-2{
-    flex-basis: 60%;
-}
-.sub-title{
-    font-size: 60px;
-    font-weight: 600;
-    color: #fff;
-}
-.tab-titles{
-   display: flex;
-   margin: 20px 0 40px;
-}
-.tab-links{
-    margin-right: 50px;
+nav ul li a {
+    color: white;
+    text-decoration: none;
     font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
     position: relative;
+    transition: color 0.3s ease;
 }
-.tab-links::after{
+
+nav ul li a::after {
     content: '';
     width: 0;
     height: 3px;
-    background: #FF004F;
+    background: red;
     position: absolute;
     left: 0;
-    bottom: -8px;
-    transition: 0.5s;
+    bottom: -5px;
+    transition: 0.5s ease;
 }
-.tab-links.active-link::after{
-    width: 50%;
+nav ul li a:hover::after {
+    width: 100%;
 }
-.tab-contents ul li{
-    list-style: none;
+.header-text {
+    max-width: 600px;
+    margin-top: 20%;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+.header-text h1 {
+    font-size: 50px;
+    margin-top: 20px;
+}
+.header-text h1 span {
+    color: (2, 56, 182);
+}
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* About Section */
+#about {
+    padding: 80px 5%;
+    background: #111;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+}
+.about-col-1 {
+    flex-basis: 35%;
+}
+.about-col-1 img {
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+}
+.about-col-2 {
+    flex-basis: 60%;
+}
+.sub-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: rgb(2, 56, 182);
+}
+.skills ul {
+    list-style-type: square;
+    margin-left: 20px;
+    color: #ddd;
+}
+/* Services Section */
+#services {
+    padding: 80px 5%;
+    background: #0D0D0D;
+}
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+.service {
+    background: #1A1A1A;
+    padding: 30px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+.service:hover {
+    transform: translateY(-10px);
+    background: #222;
+}
+.service h3 {
+    color: rgb(2, 56, 182);
+    margin-bottom: 10px;
+}
+/* Portfolio Section */
+#portfolio {
+    padding: 80px 5%;
+    background: #121212;
+}
+.portfolio-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.project {
+    background: #1A1A1A;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.project img {
+    width: 100%;
+    display: block;
+}
+.project h4 {
+    padding: 15px;
+    color: #fff;
+}
+.project:hover {
+    transform: scale(1.03);
+}
+/* Contact Section */
+#contact {
+    padding: 80px 5%;
+    background: #181818;
+}
+.contact-info p {
     margin: 10px 0;
+    color: #ccc;
 }
-.tab-contents ul li span{
-    color: #B54769;
+.contact-info a {
+    color: rgb(2, 56, 182);
+    text-decoration: none;
+}
+.contact-info a:hover {
+    text-decoration: underline;
+}
+/* Footer */
+footer {
+    padding: 20px 5%;
+    background: #0B0B0B;
+    text-align: center;
+    color: #666;
     font-size: 14px;
 }
-
-
-
-
-
-
-
-
-
-
-
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+    nav ul {
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        display: none;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    nav ul.show {
+        display: flex;
+    }
+    .header-text h1 {
+        font-size: 36px;
+    }
+    .sub-title {
+        font-size: 36px;
+    }
+}

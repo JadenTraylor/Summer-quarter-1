@@ -1,66 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ja'Den Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ja'Den Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="header">
-        <div class="container">
-            <nav>
-                <img src="images/logo.png" class="logo">
-                <ul>
-                    <li><a href="Home">Home</a></li>
-                    <li><a href="About">About</a></li>
-                    <li><a href="Services">Services</a></li>
-                    <li><a href="Portfolio">Portfolio</a></li>
-                    <li><a href="Contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="header-text">
-                <p>Student</p>
-                <h1>Hi, I'm <span>Ja'Den</span><br>Traylor from California</h1>
-            </div>
-        </div>
-    </div>
 
-    <!-- Header End -->
-    <!-- About Start -->
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="about-col-1">
-                    <img src="images/facecard.jpeg" alt="About Image">
-                </div>
-                <div class="about-col-2">
-                    <h1 class="sub-title">About Me</h1>
-                    <p>I know your wondering who I am, well that is me on the left. As you know from the front page my name is Ja'Den
-                        Leo Traylor 
-                    </p>
-                    <div class="tab-titles">
-                        <p class="tab-links active-link">Skills</p>
-                        <p class="tab-links">Experience</p>
-                        <p class="tab-links">Education</p>
-                    </div>
-                    <div class="tab-contents active-tab" id="Skills">
-                        <ul>
-                            <li><span>Python</span><br>Beginner</li>
-                            <li><span>HTML</span><br>Intern</li>
-                            <li><span>Game Dev</span><br>Intermediate</li>
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="Education">
-                        <ul>
-                            <li><span>2025</span><br>The Hidden Genius Project</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <!-- Header Section -->
+  <header id="header">
+    <div class="container">
+      <nav>
+        <img src="images/logo.jpeg" alt="logo">
+        <ul>
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-text">
+        <h1>Hi, I'm <span>Ja'Den Leo Traylor</span><br> from Hercules California</h1>
+      </div>
     </div>
-
-    <script></script>
+  </header>
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <!-- Image Column -->
+        <div class="about-col-1">
+        <img src="images/facecard.jpeg" alt="About Image">
+        </div>
+        <!-- Text Column -->
+        <div class="about-col-2">
+          <h2 class="sub-title">Who I am</h2>
+          <p>
+            I know your wondering who I am, well this is me on the left. As you know from the front page my name is Ja'Den
+              Leo Traylor I am 15 years old
+          </p>
+          <!-- You could also add a list of skills here -->
+          <div class="skills">
+            <h3>Skills:</h3>
+            <ul>
+              <li>HTML, CSS (beginner)</li>
+              <li>JavaScript (learning)</li>
+              <li>Teamwork & Communication</li>
+              <li>Creative Problem Solving</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <h2 class="sub-title">My Abilitys/Skills</h2>
+      <div class="services-list">
+        <div class="service">
+          <h3>Web Development</h3>
+          <p>Creating well looking websites that people can use and buy.</p>
+        </div>
+        <div class="service">
+          <h3>Problem Solving</h3>
+          <p>Using logic and mulitpule solutins fo figure out how to handle the problems at hand</p>
+        </div>
+        <div class="service">
+          <h3>Team Projects</h3>
+          <p>Collaborating with others on tech debugging, and bringing ideas together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Portfolio Section -->
+  <section id="portfolio">
+    <div class="container">
+      <h2 class="sub-title">My Work</h2>
+      <div class="portfolio-gallery">
+        <div class="project">
+          <img src="project1.png" alt="Project 1 Screenshot" />
+          <h4>Genius Web Page</h4>
+        </div>
+        <div class="project">
+          <img src="project2.png" alt="Project 2 Screenshot" />
+          <h4>CSS Animation Demo</h4>
+        </div>
+        <!-- Add more projects as needed -->
+      </div>
+    </div>
+  </section>
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="sub-title">Contact Me</h2>
+      <p>Have questions? LET ME KNOW!</p>
+      <div class="contact-info">
+        <p>Email: <a href="mailto:jadentraylor856@gmail.com">jadentraylor856@gmail.com</a></p>
+        <p>Number: <a href="#">510-691-6354</a></p>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>2025 Ja'Den Portfolio </p>
+    </div>
+  </footer>
 </body>
 </html>

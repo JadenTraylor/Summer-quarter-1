@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ja'Den Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <img src="" alt="football.jpeg">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo">
+                <ul>
+                    <li><a href="Home">Home</a></li>
+                    <li><a href="About">About</a></li>
+                    <li><a href="Services">Services</a></li>
+                    <li><a href="Portfolio">Portfolio</a></li>
+                    <li><a href="Contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <p>Student</p>
+                <h1>Hi, I'm <span>Ja'Den Leo</span><br>Traylor from Hercules California</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header End -->
+    <!-- About Start -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/facecard.jpeg" alt="About Image">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">Who I am</h1>
+                    <p>I know your wondering who I am, well this is me on the left. As you know from the front page my name is Ja'Den
+                        Leo Traylor I am 15 years old 
+                    </p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link">Biggest goal</p>
+                        
+                        <p class="tab-links">Background info</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="Skills">
+                        <ul>
+                            <li><span>School</span><br>Pinole Valley High School</li>
+                            <li><span>Hobbie</span><br>Football </li>
+                            <li><span>Class</span><br>co2028</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="Education">
+                        <ul>
+                            <li><span>Cohort</span><br>Rich 9</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', 'sans-serif';
+    box-sizing: border-box;
+}
+body{
+    background: black;
+    color: whitesmoke;
+}
+
+#header{
+    width: 100%;
+    height: 100vh;
+    background-image: url("images/football.jpeg");
+    background-size: contain; 
+    background-position: center;
+}
+
+
+.container{
+    padding: 10px 10%;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo{
+    width: 250px;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a{
+    color:red;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+
+}
+
+nav ul li a::after{
+    content:'';
+    width: 0; 
+    height: 3px;
+    background: whitesmoke;
+    position: absolute;
+    left: 0; 
+    bottom: -6px;
+    transition: 0.5s;
+}
+
+nav ul li a:hover::after{
+    width: 100%;
+}
+
+.header-text {
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.header-text h1{
+    font-size: 60px;
+    margin-top: 20px;
+}
+.header-text h1 span{
+    color: black (0, 128, 111);
+}
+/* ------------about--------------- */
+#about{
+    padding: 80px 0;
+    color: whitesmoke;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.about-col-1{
+    flex-basis: 35%;
+}
+.about-col-1 img{
+    width: 100%;
+    border-radius: 15px;
+}
+.about-col-2{
+    flex-basis: 60%;
+}
+.sub-title{
+    font-size: 60px;
+    font-weight: 600;
+    color: #fff;
+}
+.tab-titles{
+   display: flex;
+   margin: 20px 0 40px;
+}
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+.tab-links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #FF004F;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+.tab-links.active-link::after{
+    width: 50%;
+}
+.tab-contents ul li{
+    list-style: none;
+    margin: 10px 0;
+}
+.tab-contents ul li span{
+    color: #B54769;
+    font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
