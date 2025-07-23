@@ -12,7 +12,7 @@
   <header id="header">
     <div class="container">
       <nav>
-        <img src="images/logo.jpeg" alt="logo">
+        <img src="images/logo.jpeg" alt="logo" />
         <ul>
           <li><a href="#header">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -26,88 +26,134 @@
       </div>
     </div>
   </header>
+
   <!-- About Section -->
   <section id="about">
     <div class="container">
       <div class="row">
         <!-- Image Column -->
         <div class="about-col-1">
-        <img src="images/facecard.jpeg" alt="About Image">
+          <img src="images/facecard.jpeg" alt="About Image" />
         </div>
         <!-- Text Column -->
         <div class="about-col-2">
           <h2 class="sub-title">Who I am</h2>
           <p>
-            I know your wondering who I am, well this is me on the left. As you know from the front page my name is Ja'Den
-              Leo Traylor I am 15 years old
+            I know you're wondering who I am — well, this is me on the left. As you know from the front page, my name is Ja'Den
+            Leo Traylor. I am 15 years old.
           </p>
-          <!-- You could also add a list of skills here -->
-          <div class="skills">
-            <h3>Skills:</h3>
+          <div class="tab-titles">
+            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+            <p class="tab-links" onclick="opentab('goals')">Goals</p>
+            <p class="tab-links" onclick="opentab('background-info')">Background Info</p>
+          </div>
+
+          <div class="tab-contents active-tab" id="skills">
             <ul>
-              <li>HTML, CSS (beginner)</li>
-              <li>JavaScript (learning)</li>
-              <li>Teamwork & Communication</li>
-              <li>Creative Problem Solving</li>
+              <li><span>Interpersonal</span><br>Great with talking to people</li>
+              <li><span>Sports</span><br>Football</li>
+              <li><span>Class</span><br>co2028</li>
+            </ul>
+          </div>
+
+          <div class="tab-contents" id="background-info">
+            <ul>
+              <li><span>School</span><br>Pinole Valley High School</li>
+              <li><span>Hobbies</span><br>Football and making music</li>
+              <li><span>Class</span><br>co2028</li>
+              <li><span>Cohort</span><br>Rich 9</li>
+            </ul>
+          </div>
+
+          <div class="tab-contents" id="goals">
+            <ul>
+              <li><span>College</span><br>Going to colloge for free</li>
+              <li><span>Bus</span><br>Footbahgfjhaking music</li>
+              <li><span>Class</span><br>co2028</li>
+              <li><span>Cohort</span><br>Rich 9</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+      var tablinks = document.getElementsByClassName("tab-links");
+      var tabcontents = document.getElementsByClassName("tab-contents");
+
+      function opentab(tabname) {
+        for (let tablink of tablinks) {
+          tablink.classList.remove("active-link");
+        }
+        for (let tabcontent of tabcontents) {
+          tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+      }
+    </script>
   </section>
+
   <!-- Services Section -->
   <section id="services">
     <div class="container">
-      <h2 class="sub-title">My Abilitys/Skills</h2>
+      <h2 class="sub-title">My Abilities/Skills</h2>
       <div class="services-list">
         <div class="service">
           <h3>Web Development</h3>
-          <p>Creating well looking websites that people can use and buy.</p>
+          <p>Creating well-designed websites that people can use and buy.</p>
         </div>
         <div class="service">
           <h3>Problem Solving</h3>
-          <p>Using logic and mulitpule solutins fo figure out how to handle the problems at hand</p>
+          <p>Using logic and multiple solutions to figure out how to handle problems.</p>
         </div>
         <div class="service">
           <h3>Team Projects</h3>
-          <p>Collaborating with others on tech debugging, and bringing ideas together.</p>
+          <p>Collaborating with others on tech, debugging, and bringing ideas together.</p>
         </div>
       </div>
     </div>
   </section>
+
   <!-- Portfolio Section -->
   <section id="portfolio">
     <div class="container">
-      <h2 class="sub-title">My Work</h2>
+      <h2 class="sub-title">Sports </h2>
       <div class="portfolio-gallery">
         <div class="project">
-          <img src="project1.png" alt="Project 1 Screenshot" />
-          <h4>Genius Web Page</h4>
+         <video width="420" height="700" controls>
+           <source src="video.mp4" type="video/mp4">
+          <h4>This is my first year playing basketball in high school. I was usually sitting on the bench, but in one game, they let me play, and I did really well. After that, I became a starter. What I want to say is to never give up. I thought about quitting because I wasn't starting and wasn't getting to play, but when I finally got my chance, I showed them that I deserved to be there. </h4>
         </div>
         <div class="project">
-          <img src="project2.png" alt="Project 2 Screenshot" />
-          <h4>CSS Animation Demo</h4>
+          <video width="420" height="700" controls>
+           <source src="football.mov" type="football/mov">
+          
+         <h4>This is my first year playing football in high school. I came to the school to be a wide receiver but the coaches had different plans. I ended up playing quarterback which was tough at first since I had never done it before. In the end, I became a decent quarterback, finishing the season with 13 touchdowns. What I'm trying to say is that you shouldn't give up on something before you give it a try.</h4>
         </div>
         <!-- Add more projects as needed -->
       </div>
     </div>
   </section>
+
   <!-- Contact Section -->
   <section id="contact">
     <div class="container">
       <h2 class="sub-title">Contact Me</h2>
-      <p>Have questions? LET ME KNOW!</p>
+      <p>Have any questions? Contact Me</p>
       <div class="contact-info">
         <p>Email: <a href="mailto:jadentraylor856@gmail.com">jadentraylor856@gmail.com</a></p>
         <p>Number: <a href="#">510-691-6354</a></p>
       </div>
     </div>
   </section>
+
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>2025 Ja'Den Portfolio </p>
+      <p>2025 Ja'Den Portfolio</p>
     </div>
   </footer>
+  
 </body>
 </html>
