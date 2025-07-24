@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
+ <div id="particles-js" style="position:fixed; width:100%; height:100%; z-index:-1;"></div>
   <!-- Header Section -->
   <header id="header">
     <div class="container">
@@ -39,8 +39,8 @@
         <div class="about-col-2">
           <h2 class="sub-title">Who I am</h2>
           <p>
-            I know you're wondering who I am — well, this is me on the left. As you know from the front page, my name is Ja'Den
-            Leo Traylor. I am 15 years old.
+            I know you're wondering who I am well, this is me on the left. As you know from the front page, my name is Ja'Den
+            Leo Traylor. I am 15 years old things about me is I am a competive person and I hate to lose, but who doesn't. I am  great listener and I hear people out and then commet on what I have to say.
           </p>
           <div class="tab-titles">
             <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
@@ -51,8 +51,8 @@
           <div class="tab-contents active-tab" id="skills">
             <ul>
               <li><span>Interpersonal</span><br>Great with talking to people</li>
-              <li><span>Sports</span><br>Football</li>
-              <li><span>Class</span><br>co2028</li>
+              <li><span>Team work and collaboration</span><br>whoever you put me with I can work with and get it down</li>
+              <li><span>Negotiation</span><br>I can talk to people and get what I need, and I can also help them</li>
             </ul>
           </div>
 
@@ -68,7 +68,7 @@
           <div class="tab-contents" id="goals">
             <ul>
               <li><span>College</span><br>Going to colloge for free</li>
-              <li><span>Bus</span><br>Footbahgfjhaking music</li>
+              <li><span>Business</span><br>I would like to create my own website or own a company.</li>
               <li><span>Class</span><br>co2028</li>
               <li><span>Cohort</span><br>Rich 9</li>
             </ul>
@@ -76,7 +76,7 @@
         </div>
       </div>
     </div>
-
+  
     <script>
       var tablinks = document.getElementsByClassName("tab-links");
       var tabcontents = document.getElementsByClassName("tab-contents");
@@ -109,7 +109,7 @@
         </div>
         <div class="service">
           <h3>Team Projects</h3>
-          <p>Collaborating with others on tech, debugging, and bringing ideas together.</p>
+          <p>Collaborating with others on tech, debugging, and bringing ideas together and also helping them when they need it.</p>
         </div>
       </div>
     </div>
@@ -120,16 +120,17 @@
     <div class="container">
       <h2 class="sub-title">Sports </h2>
       <div class="portfolio-gallery">
+
         <div class="project">
-         <video width="420" height="700" controls>
-           <source src="video.mp4" type="video/mp4">
           <h4>This is my first year playing basketball in high school. I was usually sitting on the bench, but in one game, they let me play, and I did really well. After that, I became a starter. What I want to say is to never give up. I thought about quitting because I wasn't starting and wasn't getting to play, but when I finally got my chance, I showed them that I deserved to be there. </h4>
-        </div>
-        <div class="project">
           <video width="420" height="700" controls>
-           <source src="football.mov" type="football/mov">
+          <source src="videos/video.mp4" type="video/mp4">
+        </div>
           
+        <div>
          <h4>This is my first year playing football in high school. I came to the school to be a wide receiver but the coaches had different plans. I ended up playing quarterback which was tough at first since I had never done it before. In the end, I became a decent quarterback, finishing the season with 13 touchdowns. What I'm trying to say is that you shouldn't give up on something before you give it a try.</h4>
+         <video width="420" height="700" controls>
+         <source src="videos/football.mp4" type="football/mp4">
         </div>
         <!-- Add more projects as needed -->
       </div>
@@ -154,6 +155,24 @@
       <p>2025 Ja'Den Portfolio</p>
     </div>
   </footer>
+   <!-- Particle scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80 },
+        "size": { "value": 3 },
+        "move": { "speed": 2 },
+        "line_linked": { "enable": true },
+        "color": { "value": "#ffffff" }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" }
+        }
+      }
+    });
+  </script>
   
 </body>
 </html>

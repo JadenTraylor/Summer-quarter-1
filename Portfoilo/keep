@@ -208,7 +208,11 @@ nav ul li a:hover::after{
 }
 
 
-
+<div id="particles-js"></div>
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script>
+  particlesJS.load('particles-js', 'particles.json');
+</script>
 
 
 
