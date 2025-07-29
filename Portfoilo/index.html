@@ -7,7 +7,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
- <div id="particles-js" style="position:fixed; width:100%; height:100%; z-index:-1;"></div>
+  <!-- Stars background layer -->
+  <div class="stars">
+    <img src="images/basketball.jpeg" alt="logo" />
+  </div>
   <!-- Header Section -->
   <header id="header">
     <div class="container">
@@ -39,19 +42,18 @@
         <div class="about-col-2">
           <h2 class="sub-title">Who I am</h2>
           <p>
-            I know you're wondering who I am well, this is me on the left. As you know from the front page, my name is Ja'Den
-            Leo Traylor. I am 15 years old things about me is I am a competive person and I hate to lose, but who doesn't. I am  great listener and I hear people out and then commet on what I have to say.
+           I know you might be wondering who I am, so here I am on the left. As it says on the front page, my name is Ja'Den Leo Traylor and I am 15 years old. One thing about me is that I really like to win and I don't like to lose. I am also a good listener; I really pay attention to what others say and then I share my own ideas. I am also very determined; I keep working on something until I finish it. Another thing about me is that I am a leader, not a follower. People admire me and want to do what I do, and many say I am a positive influence.
           </p>
           <div class="tab-titles">
-            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-            <p class="tab-links" onclick="opentab('goals')">Goals</p>
-            <p class="tab-links" onclick="opentab('background-info')">Background Info</p>
+           <p class="tab-links active-link" onclick="opentab('skills', event)">Skills</p>
+           <p class="tab-links" onclick="opentab('goals', event)">Goals</p>
+           <p class="tab-links" onclick="opentab('background-info', event)">Background Info</p>
           </div>
 
           <div class="tab-contents active-tab" id="skills">
             <ul>
               <li><span>Interpersonal</span><br>Great with talking to people</li>
-              <li><span>Team work and collaboration</span><br>whoever you put me with I can work with and get it down</li>
+              <li><span>Team work and collaboration</span><br>Whoever you put me with I can work with and get it down</li>
               <li><span>Negotiation</span><br>I can talk to people and get what I need, and I can also help them</li>
             </ul>
           </div>
@@ -67,10 +69,9 @@
 
           <div class="tab-contents" id="goals">
             <ul>
-              <li><span>College</span><br>Going to colloge for free</li>
-              <li><span>Business</span><br>I would like to create my own website or own a company.</li>
-              <li><span>Class</span><br>co2028</li>
-              <li><span>Cohort</span><br>Rich 9</li>
+              <li><span>College</span><br>Going to college for free</li>
+              <li><span>Business</span><br>I want to make my own website or have my own business.</li>
+              <li><span>Football</span><br>I want to play at the next level of football</li>
             </ul>
           </div>
         </div>
@@ -81,16 +82,16 @@
       var tablinks = document.getElementsByClassName("tab-links");
       var tabcontents = document.getElementsByClassName("tab-contents");
 
-      function opentab(tabname) {
-        for (let tablink of tablinks) {
-          tablink.classList.remove("active-link");
-        }
-        for (let tabcontent of tabcontents) {
-          tabcontent.classList.remove("active-tab");
-        }
-        event.currentTarget.classList.add("active-link");
-        document.getElementById(tabname).classList.add("active-tab");
-      }
+ function opentab(tabname, event) {
+  for (let tablink of tablinks) {
+    tablink.classList.remove("active-link");
+  }
+  for (let tabcontent of tabcontents) {
+    tabcontent.classList.remove("active-tab");
+  }
+  event.currentTarget.classList.add("active-link");
+  document.getElementById(tabname).classList.add("active-tab");
+}
     </script>
   </section>
 
@@ -117,31 +118,34 @@
 
   <!-- Portfolio Section -->
   <section id="portfolio">
-    <div class="container">
-      <h2 class="sub-title">Sports </h2>
-      <div class="portfolio-gallery">
+  <div class="container">
+    <h2 class="sub-title">Sports</h2>
+    <div class="portfolio-gallery">
 
-        <div class="project">
-          <h4>This is my first year playing basketball in high school. I was usually sitting on the bench, but in one game, they let me play, and I did really well. After that, I became a starter. What I want to say is to never give up. I thought about quitting because I wasn't starting and wasn't getting to play, but when I finally got my chance, I showed them that I deserved to be there. </h4>
-          <video width="420" height="700" controls>
+      <div class="project">
+        <h4>This is my first year playing basketball in high school. I was usually sitting on the bench, but in one game, they let me play, and I did really well. After that, I became a starter. What I want to say is to never give up. I thought about quitting because I wasn't starting and wasn't getting to play, but when I finally got my chance, I showed them that I deserved to be there. </h4>
+        <video width="420" height="700" controls>
           <source src="videos/video.mp4" type="video/mp4">
-        </div>
-          
-        <div>
-         <h4>This is my first year playing football in high school. I came to the school to be a wide receiver but the coaches had different plans. I ended up playing quarterback which was tough at first since I had never done it before. In the end, I became a decent quarterback, finishing the season with 13 touchdowns. What I'm trying to say is that you shouldn't give up on something before you give it a try.</h4>
-         <video width="420" height="700" controls>
-         <source src="videos/football.mp4" type="football/mp4">
-        </div>
-        <!-- Add more projects as needed -->
+        
+        </video>
       </div>
+        
+      <div class="project">
+          <h4>This is my first year playing football in high school. I came to the school to be a wide receiver but the coaches had different plans. I ended up playing quarterback which was tough at first since I had never done it before. In the end, I became a decent quarterback, finishing the season with 13 touchdowns. What I'm trying to say is that you shouldn't give up on something before you give it a try.</h4>
+        <video width="420" height="700" controls>
+          <source src="videos/easy.mp4" type="video/mp4">
+        </video>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Contact Section -->
   <section id="contact">
     <div class="container">
       <h2 class="sub-title">Contact Me</h2>
-      <p>Have any questions? Contact Me</p>
+      <p>Have any questions? Here is my number and email.</p>
       <div class="contact-info">
         <p>Email: <a href="mailto:jadentraylor856@gmail.com">jadentraylor856@gmail.com</a></p>
         <p>Number: <a href="#">510-691-6354</a></p>
@@ -155,24 +159,7 @@
       <p>2025 Ja'Den Portfolio</p>
     </div>
   </footer>
-   <!-- Particle scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 80 },
-        "size": { "value": 3 },
-        "move": { "speed": 2 },
-        "line_linked": { "enable": true },
-        "color": { "value": "#ffffff" }
-      },
-      "interactivity": {
-        "events": {
-          "onhover": { "enable": true, "mode": "repulse" }
-        }
-      }
-    });
-  </script>
   
+
 </body>
 </html>
