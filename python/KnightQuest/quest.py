@@ -5,7 +5,7 @@ import pgzrun
 GRID_WIDTH = 16 # defines How many squares wide the game board is
 GRID_HEIGHT = 12 # defines How many squares tall the game board is
 GRID_SIZE = 50
-GUARDMOVEINTERVAL = 1.0
+GUARDMOVEINTERVAL = 0.5
 # Define the size of the game window
 WIDTH = GRID_WIDTH * GRID_SIZE
 HEIGHT = GRID_HEIGHT * GRID_SIZE
