@@ -5,64 +5,64 @@ import pgzrun
 GRID_WIDTH = 16 # defines How many squares wide the game board is
 GRID_HEIGHT = 12 # defines How many squares tall the game board is
 GRID_SIZE = 50
+GUARDMOVEINTERVAL = 1.0
 # Define the size of the game window
 WIDTH = GRID_WIDTH * GRID_SIZE
 HEIGHT = GRID_HEIGHT * GRID_SIZE
 #########################
 ########## 1.5 ##########
-MAP=["WWWWWWWWWWWWWWWW",
-    "W  K   W     G W",
-    "W WWWW WWWWWW WW",
-    "W W  K     W   W",
-    "W W WWWWW WWWW W",
-    "W W     W     WW",
-    "W WWWWW W WWWW W",
-    "W     W W   K  W",
-    "WWW W W WWW WW W",
-    "W P W   K   W  W",
-    "W WWWWWWWWWWW DW",
+MAP = [
+    "WWWWWWWWWWWWWWWW",
+    "W   K      G   W",
+    "W WWWW WWWWW W W",
+    "W W    K   W W W",
+    "W W WWWWWW W W W",
+    "W W    G   W   W",
+    "W WWWWWWWWWWW WW",
+    "W   G   P     KW",
+    "W WWWW WWWWW WWW",
+    "W     W   K    W",
+    "W G W WWWWWWW WW",
+    "W   W          D",
     "WWWWWWWWWWWWWWWW"
 ]
 #########################
 ########## 1.4 ##########
 # This function converts a grid position to screen coordinates
 def GetScreenCoords(x, y):
-    return (x * GRID_SIZE, y * GRID_SIZE)
-# This function draws the dungeon floor as a background on screen
+    return(x * GRID_SIZE, y * GRID_SIZE)
+#This draws the floor as a background
 def DrawBackground():
-    for y in range (GRID_HEIGHT): # loop over each grid row
-        for x in range (GRID_WIDTH): # loop over each grid column
-            screen.blit("floor1", GetScreenCoords(x, y)) # Draws the named imaged at the given screen position
-#########################
-########## 2.1 ##########
-# This function takes in an actor as an argument &
-# returns the postion of the actor on the grid
-def GetActorGridPos(actor):
-    return(round(actor.x / GRID_SIZE), round(actor.y / GRID_SIZE))
-#########################
-########## 1.7, 3.0 ##########
-# This function creates an actor object from the Actor class to reperesent the player & keys
+    for y in range (GRID_HEIGHT): #loops through each row
+        for x in range(GRID_WIDTH): #loops through each column
+            screen.blit("floor1", GetScreenCoords(x, y)) #Draws the image at the given position
 def SetupGame():
+    global player #define player as global
+    global keysToCollect #A variable to to store the keys that the player must collect
     global gameOver
-    global player # Define player as a global var that be accessed anywhere in your code
-    global keysToCollect # A var to store all the keys the player needs to collect
-    player = Actor("player", anchor=("left", "top")) # Create a new Actor & set its anchor
+    global guards
+    player = Actor("player", anchor=("left", "top")) #Create an actor for any moving objects player
     keysToCollect = []
+    guards = []
     gameOver = False
-    for y in range(GRID_HEIGHT): # Loop over each grid position
+    for y in range(GRID_HEIGHT):
         for x in range(GRID_WIDTH):
-            square = MAP[y][x] # Extracts the character from the MAP variable
-            if square == "P": # Checks if the grid position is the player
-                player.pos = GetScreenCoords(x, y) # Set the position of the player
-            elif square == "K":
-                # Create an actor for that key
-                key = Actor("key", anchor=("left", "top"))
-                # Set the key's pos to this grid location
+            square = MAP[y][x]#Gets the character from the MAP var
+            if square == 'P':
+                player.pos = GetScreenCoords(x, y)
+            elif square == 'K':
+                #Create actor for the key
+                key = Actor("key", anchor=("left","top"))
+                #Set key pos to this space
                 key.pos = GetScreenCoords(x, y)
-                # Add this key to our list of keys
+                #Add key to list
                 keysToCollect.append(key)
-#########################
-########## 1.6 ##########
+            elif square == 'G':
+                #Create actor for the guard
+                guard = Actor("guard", anchor=("left","top"), pos = GetScreenCoords(x, y))
+                #Add guard to list
+                guards.append(guard)
+#Draw walls
 def DrawScenery():
     for y in range(GRID_HEIGHT):
         for x in range(GRID_WIDTH):
@@ -71,61 +71,102 @@ def DrawScenery():
                 screen.blit("wall", GetScreenCoords(x, y))
             elif square == "D":
                 screen.blit("door", GetScreenCoords(x, y))
-########## 1.8, 3.1 ##########
-def DrawActors():
+def GetActorGridPos(actor): #gets the actor as an argument and finds its position on the grid
+    return (round(actor.x/GRID_SIZE)), (round(actor.y/GRID_SIZE)) #divides pixel coords by grid conversion number
+def DrawActors():#Draw entities
     player.draw()
     for key in keysToCollect:
         key.draw()
-#########################
-def drawgameover():
-    screenmiddle = (WIDTH / 2, HEIGHT / 2)
-    screen.draw.text("GAME OVER", midbottom = screenmiddle,
-                     fontsize = GRID_SIZE, color="cyan", owidth=1)
-# draw() is
-def draw():
+    for guard in guards:
+        guard.draw()
+def draw(): #Draws everything USE 'draw', not 'Draw', 'draw' is built in
     screen.clear()
     DrawBackground()
     DrawScenery()
     DrawActors()
     if gameOver:
-        drawgameover()
-########################
-########## 2.2, 3.2 ##########
+        DrawGameOver()
 def MovePlayer(dx, dy):
     global gameOver
-    if gameOver:
+    if gameOver: #if the game is over
+        #stop the player from moving by breaking the function
         return
-    (x, y) = GetActorGridPos(player)
-    x += dx
-    y += dy
-    square = MAP[y][x]
-    if square == "W": # If the player tries to move into a wall
-        return # stop the function, dont let the player move
-    elif square == "D":
-        if len(keysToCollect) > 0: # If there are keys left to collect
-            return  # do no let the player exit the door if there are keys left
+    (x, y) = GetActorGridPos(player) #gets the player position
+    x += dx #adds the inputted move to the current coords
+    y += dy #adds the inputted move to the current coords
+    square = MAP[y][x]#Makes sure the player doesn't go through a wall/door
+    if square == "W": # if the player tries to move into a wall, don't let the player through
+        return
+    elif square == "D": # if the list of keys left to collect, there are keys left to collect, don't let the player through.
+        if  len(keysToCollect) > 0:
+            return
         else:
             gameOver = True
     for key in keysToCollect:
-        # Get the grid pos of the current key
-        (keyX, keyY) = GetActorGridPos(key)
-        # Check if the new player pos mathces the pos of one of the keys
-        if x == keyX and y == keyY:
+        (keyX, keyY) = GetActorGridPos(key)#get the grid position of the current key
+        if x ==keyX and y == keyY: #Checks if the player is touching the key
             keysToCollect.remove(key)
-    player.pos = GetScreenCoords(x,y)
-#########################
-########## 2.3 ##########
-# This Function gets a key from the user and moves the player based on the input
+            break
+    player.pos = GetScreenCoords(x,y) #Prints the player at their new coordinate
 def on_key_down(key):
+    dir = ''
     if key == keys.LEFT:
-        MovePlayer(-1, 0) # Player moves left one on the grid
+        MovePlayer(-1, 0)
     elif key == keys.UP:
-        MovePlayer(0, -1) # Player moves up one on the grid
+        MovePlayer(0, -1)
     elif key == keys.RIGHT:
-        MovePlayer(1, 0) # Player moves right one on the grid
+        MovePlayer(1, 0)
     elif key == keys.DOWN:
-        MovePlayer(0, 1) # Player moves down one on the grid
-#########################
-# Start the Pygame
+        MovePlayer(0, 1)
+def DrawGameOver():
+    #Calculate and store the middle pos of the screen
+    screenMiddle = (WIDTH/2, HEIGHT/2)
+    #Draw game over
+    screen.draw.text("Game Over", midbottom = screenMiddle, fontsize = GRID_SIZE*2, color="cyan", owidth=1)
+def MoveGuard(guard):
+    global gameOver
+    if gameOver:
+        return
+    (playerX, playerY) = GetActorGridPos(player)#Get the positions of the guard and player.
+    (guardX, guardY) = GetActorGridPos(guard)
+    #Check which direction the player is, and if there is a wall in the way
+    if playerX > guardX and MAP[guardY][guardX+1] != 'W':
+        guardX += 1
+    if playerX < guardX and MAP[guardY][guardX-1] != 'W':
+        guardX -= 1
+    if playerY > guardY and MAP[guardY+1][guardX] != 'W':
+        guardY += 1
+    if playerY < guardY and MAP[guardY-1][guardX] != 'W':
+        guardY -= 1
+    #update the guard position on screen
+    guard.pos = GetScreenCoords(guardX, guardY)
+    #Check if the guard and player are in the same position
+    if guardX == playerX and guardY == playerY:
+        gameOver = True
+def MoveGuards():
+    for guard in guards:
+        MoveGuard(guard)
 SetupGame()
+clock.schedule_interval(MoveGuards, GUARDMOVEINTERVAL)
 pgzrun.go()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
