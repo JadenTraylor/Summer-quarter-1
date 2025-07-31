@@ -1,8 +1,27 @@
-body{
+body {
     background: black;
     color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #ffd700; /* optional: golden yellow */
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
 
 .image-grid {
   display: grid;
